@@ -5,3 +5,12 @@ entre 1 e um valor digitado pelo usuário. Por exemplo, se o usuário
 digitar o número 4, o programa deverá calcular o somatório 1 + 2 + 3 + 4 = 10.
 
 */
+
+let usuario_valor = parseInt(prompt("Informe um número: "));
+let contador_soma = 0;
+
+for (let i = 0; i < (usuario_valor+1); i++) {
+    contador_soma += i;
+}
+
+console.log("Total: " + contador_soma);
