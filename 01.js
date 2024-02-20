@@ -15,17 +15,60 @@ calcule e imprima o valor a ser pago pelo cliente.
 
 */
 
-let tipo_combustivel       = prompt('Tipo de Combustível: ');
-tipo_combustivel           = tipo_combustivel.toUpperCase();
-
-let quantidade_conbustivel = 0;
-
-if (tipo_combustivel == 'A') {
-
+function validar_combustuvel_tipo (tipo_combustivel_parametro) {
+    
+    if (tipo_combustivel_parametro == 'A') {
+        return 'A';
+    }
+    if (tipo_combustivel_parametro == 'G') {
+        return 'G';
+    }
+    
+    return false;
 }
-else if (tipo_combustivel == 'G') {
 
+function porcentagem_desconto (combustivel_preco, porcentagem_desconto) {
+    return combustivel - (combustivel_preco * (porcentagem_desconto / 100));
+}
+
+function combustivel_desconto(tipo_combustivel, quantidade_combustivel, preco_litro) {
+
+    if (tipo_combustivel == 'A') {
+        if (quantidade_combustivel <= 20) {
+            return porcentagem_desconto(preco_litro, /**/);
+        }
+        else {
+            return porcentagem_desconto(preco_litro, /**/);
+        }
+    }
+    else {
+        if (quantidade_combustivel <= 20) {
+            return porcentagem_desconto(preco_litro, /**/);
+        }
+        else {
+            return porcentagem_desconto(preco_litro, /**/);
+        }
+    }
+}
+
+let tipo_combustivel       = prompt('A => Álcool\nG => Gasolina\nTipo de Combustível: ').toUpperCase();
+let preco_litro            = parseFloat(prompt("Preço do Combustível: "));
+let quantidade_combustivel = 0;
+let combustivel            = 0;
+
+combustivel = validar_combustuvel_tipo(tipo_combustivel);
+
+if (combustivel !== false) {
+
+    preco_litro = parseFloat(prompt("Informe o valor do litro: "));
+    
+    if (combustivel == 'A') {
+        quantidade_combustivel = parseFloat(prompt("Informe a quantidade de Álcool:"));
+    }
+    else {
+        quantidade_combustivel = parseFloat(prompt("Informe a quantidade de Gasolina:"));
+    }
 }
 else {
-    alert('Informe um tipo válido!');
+    alert("Informe um tipo válido!");
 }
